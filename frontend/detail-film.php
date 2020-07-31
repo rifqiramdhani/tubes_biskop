@@ -54,7 +54,7 @@ $getdata = mysqli_fetch_assoc($query);
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-left border-bottom-0">Jam Tayang</td>
+                                                        <td class="text-left border-bottom-0">Tanggal Tayang</td>
                                                         <td class="text-right border-bottom-0">
                                                             <strong><?= tgl_indo($getdata['tanggal_tayang']) ?></strong>
                                                         </td>

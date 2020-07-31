@@ -39,17 +39,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = htmlspecialchars(ucwords($_POST['email']));
 
         //insert to customer
-        mysqli_query($koneksi, "INSERT INTO `customer`(`nama`, `alamat`, `no_telepon`, `status`) VALUES ('$nama', '$alamat', '$telepon', 'nonmember')");
+        $queryCek = mysqli_query($koneksi, "SELECT * FROM customer WHERE email = '$email'");
 
-        $queryCus = mysqli_query($koneksi, "SELECT * FROM customer ORDER BY id_customer DESC LIMIT 1");
-        $getCus = mysqli_fetch_assoc($queryCus);
+        if(mysqli_num_rows($queryCek) == 0 ){
+            mysqli_query($koneksi, "INSERT INTO `customer`(`nama`, `alamat`, `no_telepon`, `status`) VALUES ('$nama', '$alamat', '$telepon', 'nonmember')");
 
-        $id_customer = $getCus['id_customer'];
-       
+            $queryCus = mysqli_query($koneksi, "SELECT * FROM customer ORDER BY id_customer DESC LIMIT 1");
+            $getCus = mysqli_fetch_assoc($queryCus);
+
+            $id_customer = $getCus['id_customer'];
+        }else{
+            $getCustomer = mysqli_fetch_assoc($queryCek);
+            $id_customer = $getCustomer['id_customer'];
+        }
+
         $sql = mysqli_query($koneksi, "INSERT INTO `tiket`(`id_customer`, `id_dt_jadwal`, `no_kursi`, `jumlah`, `harga_tiket`, `total_harga_tiket`, `tanggal`, `metode_pembayaran`) VALUES ('$id_customer', '$id_dt_jadwal', '$no_kursi', '$jumlah', '$harga_tiket', '$total_harga_tiket', '$tanggal', '$pembayaran')");
 
-
-        
 
         if ($sql) {
             $queryTiket = mysqli_query($koneksi, "SELECT * FROM tiket ORDER BY id_customer DESC LIMIT 1");
@@ -90,7 +95,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }else{
         $id_customer = $_SESSION['id_customer'];
 
-        $sql = mysqli_query($koneksi, "INSERT INTO `tiket`(`id_customer`, `id_dt_jadwal`, `no_kursi`, `jumlah`, `harga_tiket`, `total_harga_tiket`, `tanggal`, `metode_pembayaran`) VALUES ('$id_customer', '$id_dt_jadwal', '$no_kursi', '$jumlah', '$harga_tiket', '$total_harga_tiket', '$tanggal', '$pembayaran')");
+        $diskon = $total_harga_tiket * 0.15;
+        $final_total_harga = $total_harga_tiket - $diskon;
+
+        $sql = mysqli_query($koneksi, "INSERT INTO `tiket`(`id_customer`, `id_dt_jadwal`, `no_kursi`, `jumlah`, `harga_tiket`, `total_harga_tiket`, `tanggal`, `metode_pembayaran`) VALUES ('$id_customer', '$id_dt_jadwal', '$no_kursi', '$jumlah', '$harga_tiket', '$final_total_harga', '$tanggal', '$pembayaran')");
 
         if ($sql) {
             $_SESSION['message'] = 'Transaksi berhasil dilakukan, silahkan ke menu tiket untuk mencetak tiket.';
