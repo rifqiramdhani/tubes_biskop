@@ -8,22 +8,22 @@ function configsmtp($mail){
 
     $mail->SMTPDebug = TRUE;
 
-    // $mail->Host     = 'ssl://smtp.googlemail.com';
-    // $mail->Port       = 465;
-    // $mail->SMTPSecure = 'ssl';
-    // $mail->Username = 'bonliciptas@gmail.com';
-    // $mail->Password = 'bonli123';
-    // $mail->SMTPAuth   = true;
+    $mail->Host     = 'ssl://smtp.googlemail.com';
+    $mail->Port       = 465;
+    $mail->SMTPSecure = 'ssl';
+    $mail->Username = 'bonliciptas@gmail.com';
+    $mail->Password = 'bonli123';
+    $mail->SMTPAuth   = true;
 
     //Set the SMTP port number - likely to be 25, 465 or 587
-    $mail->Host     = 'smtp.mailtrap.io';
-    $mail->Port       = 2525;
-    $mail->SMTPAuth   = true;
-    $mail->Username = 'a696f9245fd23e';
-    $mail->Password = '8eb2e795ac1d88';
+    // $mail->Host     = 'smtp.mailtrap.io';
+    // $mail->Port       = 2525;
+    // $mail->SMTPAuth   = true;
+    // $mail->Username = 'a696f9245fd23e';
+    // $mail->Password = '8eb2e795ac1d88';
 
-    $mail->setFrom('bonliciptas@gmail.com', 'PT Bonli Cipta Sejahtera');
-    $mail->addReplyTo('bonliciptas@gmail.com', 'PT Bonli Cipta Sejahtera');
+    $mail->setFrom('riyoruki@gmail.com', 'Riyoruki Bioskop');
+    $mail->addReplyTo('riyoruki@gmail.com', 'Riyoruki Bioskop');
 
     // Set email format to HTML
     $mail->isHTML(true);
@@ -149,7 +149,7 @@ function session_flashdata()
 //fungsi untuk mengubah dari integer menjadi Rp, int
 function rupiah($nilai = 0)
 {
-    $string = "Rp, " . number_format($nilai);
+    $string = "Rp. " . number_format($nilai);
     return $string;
 }
 

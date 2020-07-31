@@ -1,5 +1,5 @@
 <?php
-$query = mysqli_query($koneksi, "SELECT id_tiket,no_kursi, jumlah, harga_tiket, total_harga_tiket, tanggal, admin.nama as nama_admin, customer.*, jam_tayang, judul, durasi, genre, kategori, direktori, nama_studio FROM `tiket` JOIN customer USING(id_customer) JOIN admin USING(id_admin) JOIN detail_jadwal USING(id_dt_jadwal) JOIN jadwal USING(id_jadwal) JOIN film using(id_film) JOIN studio USING(id_studio)");
+$query = mysqli_query($koneksi, "SELECT id_tiket,no_kursi,metode_pembayaran, jumlah, harga_tiket, total_harga_tiket, tanggal,  customer.*, jam_tayang, judul, durasi, genre, kategori, direktori, nama_studio FROM `tiket` JOIN customer USING(id_customer) JOIN detail_jadwal USING(id_dt_jadwal) JOIN jadwal USING(id_jadwal) JOIN film using(id_film) JOIN studio USING(id_studio)");
 ?>
 
 <!-- <div class="flash-data" data-flashdata=""></div> -->
@@ -29,7 +29,7 @@ $query = mysqli_query($koneksi, "SELECT id_tiket,no_kursi, jumlah, harga_tiket, 
                             <th>Jumlah Tiket</th>
                             <th>Judul Film</th>
                             <th>Tanggal Pemesanan</th>
-                            <th>Nama Admin</th>
+                            <th>Metode Pembayaran</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,8 +43,7 @@ $query = mysqli_query($koneksi, "SELECT id_tiket,no_kursi, jumlah, harga_tiket, 
                                 <td><?= $getdata['jumlah'] ?></td>
                                 <td><?= $getdata['judul'] ?></td>
                                 <td><?= date('d-m-Y', strtotime($getdata['tanggal'])) ?></td>
-                                <td><?= $getdata['nama_admin'] ?></td>
-
+                                <td><?= $getdata['metode_pembayaran'] ?></td>
 
                             </tr>
                         <?php endwhile ?>

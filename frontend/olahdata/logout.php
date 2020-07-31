@@ -2,12 +2,12 @@
 
 require_once('../../function/helper.php');
 
-unset($_SESSION['login_calon_karyawan']);
-unset($_SESSION['email_calon_karyawan']);
-unset($_SESSION['id_calon_karyawan']);
+unset($_SESSION['login_customer']);
+unset($_SESSION['email_customer']);
+unset($_SESSION['id_customer']);
 
 $_SESSION['message'] = 'Selamat anda berhasil logout';
-$_SESSION['title'] = 'Login';
+$_SESSION['title'] = 'Logout';
 $_SESSION['type'] = 'success';
 
 redirect('index.php');

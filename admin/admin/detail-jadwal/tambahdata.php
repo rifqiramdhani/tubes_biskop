@@ -1,7 +1,7 @@
 <?php
 $queryFilm = mysqli_query($koneksi, "SELECT * FROM film");
 $queryJadwal = mysqli_query($koneksi, "SELECT * FROM jadwal");
-$queryStudio = mysqli_query($koneksi, "SELECT * FROM studio ORDER BY id_studio ASC");
+$queryStudio = mysqli_query($koneksi, "SELECT * FROM studio ORDER BY nama_studio ASC");
 $id_admin = $_SESSION['id_admin'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

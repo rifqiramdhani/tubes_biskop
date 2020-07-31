@@ -9,7 +9,7 @@ if ($page) {
     } else {
         require('template/404.php');
     }
-}else {
+} else {
     require('frontend/index.php');
 }
 
@@ -48,7 +48,7 @@ if ($page) {
 
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-sign-in"></i> Login</button>
+                    <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-sign-in-alt"></i> Login</button>
                     <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -77,7 +77,7 @@ if ($page) {
 
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-sign-in"></i> Submit</button>
+                    <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-sign-in-alt"></i> Submit</button>
                     <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
                 </div>
             </div>

@@ -835,10 +835,6 @@ ul.bs-autocomplete-menu a {
 	margin: 10px;
 }
 
-input[type="radio"] {
-	display: none;
-}
-
 /* button */
 .badge-primary{
 	background-color: #2529d8!important;

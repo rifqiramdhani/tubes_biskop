@@ -42,6 +42,41 @@
 
         })
 
+        //smooth scrolling
+        let anchorlinks = document.querySelectorAll('a[href^="#"]')
+
+        for (let item of anchorlinks) { // relitere 
+            item.addEventListener('click', (e) => {
+                let hashval = item.getAttribute('href')
+                if (hashval != "#") {
+                    let target = document.querySelector(hashval)
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    })
+                    history.pushState(null, null, hashval)
+                    e.preventDefault()
+                }
+            })
+        }
+
+        //total harga
+        $("#jumlah").on("change", function() {
+            var jumlah = $(this).val()
+            var harga = 35000
+            var total_harga = 0
+            var diskon = 0
+
+            if (jumlah == 5) {
+                diskon = (harga * jumlah) * 0.2
+                total_harga = (harga * jumlah) - diskon
+            } else {
+                total_harga = harga * jumlah
+            }
+
+            $("#total_harga").val("Rp. " +total_harga)
+        })
+
     })
 </script>
 </body>
