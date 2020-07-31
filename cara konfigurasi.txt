@@ -1,0 +1,8 @@
+Setting base_url
+	*di folder function/helper.php
+	*di syntax define("BASE_URL", "http://localhost/tugas/bioskop/")
+	*ubah localhost/ sama direktori tempat projek disimpen
+
+Setting database
+	*di folder function/koneksi.php
+	*setting database sendiri da apal meren
