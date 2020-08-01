@@ -23,12 +23,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_dt_jadwal = htmlspecialchars(ucwords($_POST['id_jadwal']));
     $id_film = htmlspecialchars(ucwords($_POST['id_film']));
     $pembayaran = htmlspecialchars(ucwords($_POST['pembayaran']));
-    $no_kursi = htmlspecialchars(ucwords($_POST['kursi']));
+    $kursi = ($_POST['kursi']);
     $jumlah = htmlspecialchars(ucwords($_POST['jumlah']));
     $harga_tiket = 35000;
     $total_harga_tiket = $harga_tiket * $jumlah;
     $tanggal = date('Y-m-d H:i:s');
 
+    $no_kursi = "";
+    $count = 0;
+    foreach ($kursi as $key => $value) {
+        if($count == 0){
+            $no_kursi .= $value;
+        }else{
+            $no_kursi .=  ', ' . $value;
+        }
+        $count++;
+    }
 
     header("location: ../../index.php");
 
@@ -71,6 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <p>Nama        : ' . $nama . '</p>
             <p>Judul       : ' . $getJadwal['judul'] . '</p>
             <p>Studio      : ' . $getJadwal['nama_studio'] . '</p>
+            <p>No Kursi      : ' . $no_kursi . '</p>
             <p>Jam Tayang  : ' . $getJadwal['jam_tayang'] . ' WIB</p>
             <p>Harga Tiket : '. $harga_tiket.'</p>
             <p>Total Bayar : '. $total_harga_tiket .'</p>

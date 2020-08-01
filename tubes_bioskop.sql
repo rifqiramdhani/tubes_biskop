@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 31, 2020 at 08:39 PM
+-- Generation Time: Aug 01, 2020 at 11:09 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -42,7 +42,7 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id_admin`, `nama`, `email`, `password`, `level`) VALUES
 (1, 'Admin', 'admin@gmail.com', '$2y$10$TUYIpHPRIWmZhFybxKP33.dMfwZboDHGFHirh2ibx.9WbEz7k/uUC', 'admin'),
-(3, 'Yolanda', 'yolanda@gmail.com', '$2y$10$YTPlGQFpZiZyc383K9RqQeQQAv42mj0Hiw6dEEGBiQ6/a/iJHylqe', 'kasir');
+(3, 'Yolanda', 'yolanda@gmail.com', '$2y$10$wazDOBmf80NyCMaU5LKpOOSzyxRkGh97tLWniQMB5vM7XQc2uf2Am', 'kasir');
 
 -- --------------------------------------------------------
 
@@ -52,6 +52,7 @@ INSERT INTO `admin` (`id_admin`, `nama`, `email`, `password`, `level`) VALUES
 
 CREATE TABLE `customer` (
   `id_customer` int(11) NOT NULL,
+  `id_admin` int(11) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(100) NOT NULL,
   `nama` varchar(50) NOT NULL,
@@ -66,10 +67,10 @@ CREATE TABLE `customer` (
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`id_customer`, `email`, `password`, `nama`, `alamat`, `no_telepon`, `jenis_kelamin`, `tempat_tanggal_lahir`, `status`) VALUES
-(1, 'rifqiramdhani8@gmail.com', '$2y$10$oCa1v2wPh7bZEMUWXDGSKORvByrB/FcyWS7JTs2ecQDugbKmFdqcS', 'Rifqi Ramdhani', 'Jl. Cimareme Indah No. 27 Kab. Bandung12 B123', '081393003129', 'Laki-laki', 'Bandung, 21 April 1999', 'member'),
-(2, 'ruyatsy@gmail.com', '$2y$10$H3aNnnOqriHxJzuSTGf2C.OlS1H9NX12P66PjHQLHUA2.YB3.nHl2', 'Ruyatsyah', 'Desa ciandam, cianjur', '08199392881', 'Laki-laki', 'Cianjur, 22 Desember 1999', 'member'),
-(8, '', '', 'Ruyat', 'Mande , Cianjur No 1', '081238183213', 'Laki-laki', '', 'nonmember');
+INSERT INTO `customer` (`id_customer`, `id_admin`, `email`, `password`, `nama`, `alamat`, `no_telepon`, `jenis_kelamin`, `tempat_tanggal_lahir`, `status`) VALUES
+(1, 1, 'rifqiramdhani8@gmail.com', '$2y$10$oCa1v2wPh7bZEMUWXDGSKORvByrB/FcyWS7JTs2ecQDugbKmFdqcS', 'Rifqi Ramdhani', 'Jl. Cimareme Indah No. 27 Kab. Bandung12 B123', '081393003129', 'Laki-laki', 'Bandung, 21 April 1999', 'member'),
+(2, 1, 'ruyatsy@gmail.com', '$2y$10$H3aNnnOqriHxJzuSTGf2C.OlS1H9NX12P66PjHQLHUA2.YB3.nHl2', 'Ruyatsyah', 'Desa ciandam, cianjur', '08199392881', 'Laki-laki', 'Cianjur, 22 Desember 1999', 'member'),
+(8, NULL, '', '', 'Ruyat', 'Mande , Cianjur No 1', '081238183213', 'Laki-laki', '', 'nonmember');
 
 -- --------------------------------------------------------
 
@@ -170,11 +171,22 @@ INSERT INTO `paket_makanan` (`id_paket_makanan`, `nama_paket_makanan`, `harga`, 
 CREATE TABLE `struk` (
   `id_struk` int(11) NOT NULL,
   `id_paket_makanan` int(11) NOT NULL,
-  `id_admin` int(11) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `total_harga` int(7) NOT NULL,
   `qty` int(3) NOT NULL,
+  `metode_pembayaran` varchar(5) NOT NULL,
   `tanggal` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `struk`
+--
+
+INSERT INTO `struk` (`id_struk`, `id_paket_makanan`, `nama`, `email`, `total_harga`, `qty`, `metode_pembayaran`, `tanggal`) VALUES
+(1, 2, 'Rifqi Ramdhani', 'Rifqiramdhani8@gmail.com', 50000, 1, 'GOPAY', '2020-08-01 08:16:35'),
+(2, 2, 'Rifqi Ramdhani', 'Rifqiramdhani8@gmail.com', 50000, 1, 'GOPAY', '2020-08-01 08:16:57'),
+(3, 2, 'Rifqi Ramdhani', 'Rifqiramdhani8@gmail.com', 50000, 1, 'GOPAY', '2020-08-01 08:20:32');
 
 -- --------------------------------------------------------
 
@@ -237,7 +249,8 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`id_customer`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD UNIQUE KEY `email` (`email`),
+  ADD KEY `id_admin` (`id_admin`);
 
 --
 -- Indexes for table `detail_jadwal`
@@ -272,8 +285,7 @@ ALTER TABLE `paket_makanan`
 --
 ALTER TABLE `struk`
   ADD PRIMARY KEY (`id_struk`),
-  ADD KEY `id_paket_makanan` (`id_paket_makanan`),
-  ADD KEY `id_admin` (`id_admin`);
+  ADD KEY `id_paket_makanan` (`id_paket_makanan`);
 
 --
 -- Indexes for table `studio`
@@ -333,7 +345,7 @@ ALTER TABLE `paket_makanan`
 -- AUTO_INCREMENT for table `struk`
 --
 ALTER TABLE `struk`
-  MODIFY `id_struk` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_struk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `studio`
@@ -352,6 +364,12 @@ ALTER TABLE `tiket`
 --
 
 --
+-- Constraints for table `customer`
+--
+ALTER TABLE `customer`
+  ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `detail_jadwal`
 --
 ALTER TABLE `detail_jadwal`
@@ -364,8 +382,7 @@ ALTER TABLE `detail_jadwal`
 -- Constraints for table `struk`
 --
 ALTER TABLE `struk`
-  ADD CONSTRAINT `struk_ibfk_1` FOREIGN KEY (`id_paket_makanan`) REFERENCES `paket_makanan` (`id_paket_makanan`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `struk_ibfk_2` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `struk_ibfk_1` FOREIGN KEY (`id_paket_makanan`) REFERENCES `paket_makanan` (`id_paket_makanan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tiket`

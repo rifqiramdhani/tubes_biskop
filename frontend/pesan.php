@@ -62,7 +62,7 @@ $queryStudio =
                                             <strong>Jumlah Tiket</strong>
                                             <hr>
                                             <div class="form-group">
-                                                <input type="number" min="1" id="jumlah" class="form-control" name="jumlah" placeholder="Masukan Jumlah">
+                                                <input type="number" min="1" id="jumlah" class="form-control" name="jumlah" placeholder="Masukan Jumlah" readonly>
                                             </div>
 
                                             <div class="form-group">
@@ -121,15 +121,15 @@ $queryStudio =
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <?php $kursi = ['D', 'C', 'B', 'A'] ?>
+                                            <?php $kursi = ['J', 'I', 'H', 'G', 'F', 'E', 'D', 'C', 'B', 'A'] ?>
                                             <?php
-                                            for ($i = 0; $i < 4; $i++) {
+                                            for ($i = 0; $i < 10; $i++) {
                                                 for ($j = 1; $j < 5; $j++) {
                                             ?>
                                                     <div class="col-lg-3 mt-2">
                                                         <div class="form-check form-check-inline ml-3">
                                                             <label class="mt-2"><?= $kursi[$i] . '00' . $j ?>
-                                                                <input style="display:block; margin: auto;" type="radio" name="kursi" value="<?= $kursi[$i] . '00' . $j ?>" required />
+                                                                <input style="display:block; margin: auto;" type="checkbox" name="kursi[]" value="<?= $kursi[$i] . '00' . $j ?>"/>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -157,7 +157,7 @@ $queryStudio =
                                     </div>
                                 </div>
                                 <div class="form-group text-center">
-                                    <button type="submit" class="btn btn-primary btn-block p-3" style="font-size: 15px; font-weight: 500">Pesan Sekarang</button>
+                                    <button type="submit" id="pesansekarang" class="btn btn-primary btn-block p-3" style="font-size: 15px; font-weight: 500">Pesan Sekarang</button>
                                 </div>
                             </div>
                         </div>

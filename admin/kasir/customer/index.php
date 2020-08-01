@@ -32,7 +32,7 @@ $query = mysqli_query($koneksi, "SELECT customer.*, admin.nama as nama_admin FRO
                             <th>No Telepon</th>
                             <th>Tempat, Tanggal Lahir</th>
                             <th>Alamat</th>
-                            <th>Admin</th>
+                            <th>Nama Admin</th>
                             <!-- <th></th> -->
                         </tr>
                     </thead>

@@ -65,6 +65,36 @@
             })
         }
 
+        //pilih kursi
+        $('input[name="kursi[]"]').on("change", function() {
+            var jumlah = $('input[name="kursi[]"]:checked').length;
+
+            $('#jumlah').val(jumlah)
+
+            var harga = 35000
+            var total_harga = 0
+            var diskon = 0
+
+            if (jumlah == 5) {
+                diskon = (harga * jumlah) * 0.2
+                total_harga = (harga * jumlah) - diskon
+            } else {
+                total_harga = harga * jumlah
+            }
+
+            $("#total_harga").val("Rp. " + total_harga)
+        })
+
+        $('#pesansekarang').click(function() {
+            checked = $('input[name="kursi[]"]:checked').length;
+
+            if (!checked) {
+                alert("Pilih minimal 1 kursi");
+                return false;
+            }
+
+        });
+
         //total harga
         $("#jumlah").on("change", function() {
             var jumlah = $(this).val()
