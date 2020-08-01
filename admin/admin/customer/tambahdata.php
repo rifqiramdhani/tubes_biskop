@@ -15,8 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = htmlspecialchars($_POST['email']);
     $password = password_hash(htmlspecialchars($_POST['password']), PASSWORD_DEFAULT);
 
+    $id_admin = $_SESSION['id_admin'];
 
-    $sql = mysqli_query($koneksi, "INSERT INTO `customer`(`email`, `password`, `nama`, `alamat`, `no_telepon`, `jenis_kelamin`, `tempat_tanggal_lahir`, `status`) VALUES ('$email', '$password', '$nama', '$alamat', '$no_telepon', '$jenis_kelamin', '$tempat_tanggal_lahir', 'member')");
+    $sql = mysqli_query($koneksi, "INSERT INTO `customer`(`id_admin`, `email`, `password`, `nama`, `alamat`, `no_telepon`, `jenis_kelamin`, `tempat_tanggal_lahir`, `status`) VALUES ('$id_admin', '$email', '$password', '$nama', '$alamat', '$no_telepon', '$jenis_kelamin', '$tempat_tanggal_lahir', 'member')");
 
     if ($sql) {
         $_SESSION['message'] = 'Data berhasil di tambahkan';
