@@ -336,6 +336,10 @@ i.logout:hover {
   background: url("../../assets/img/img-sprite.png") no-repeat -529px 0px;
 }
 
+i.food:hover {
+  background: url("../../assets/img/img-sprite.png") no-repeat -617px -58px;
+}
+
 
 i.home {
   width: 60px;
@@ -368,6 +372,13 @@ i.login {
 i.logout {
   width: 60px;
   background: url("../../assets/img/img-sprite.png") no-repeat -531px -66px;
+  height: 60px;
+  display: block;
+}
+
+i.food {
+  width: 60px;
+  background: url("../../assets/img/img-sprite.png") no-repeat -617px 0px;
   height: 60px;
   display: block;
 }

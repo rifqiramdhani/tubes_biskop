@@ -17,6 +17,9 @@
 <script src="<?= BASE_URL . 'assets/js/custom.js'; ?>" type="text/javascript" charset="utf-8"></script>
 <!-- sweetaler 2 -->
 <script src="<?= BASE_URL . 'assets/js/sweetalert2.all.min.js' ?>"></script>
+<!-- datatables -->
+<script src="<?= BASE_URL . 'assets/vendors/datatables/datatables.min.js' ?>"></script>
+
 <script>
     $(document).ready(function() {
         // sweetalert
@@ -74,9 +77,15 @@
                 total_harga = harga * jumlah
             }
 
-            $("#total_harga").val("Rp. " +total_harga)
+            $("#total_harga").val("Rp. " + total_harga)
         })
 
+        //datamakanan
+        $("#datamakanan").dataTable()
+        $('#datamakanan').on('click', 'input[name="qty"]', function(e) {
+            e.preventDefault();
+            alert('ha')
+        });
     })
 </script>
 </body>

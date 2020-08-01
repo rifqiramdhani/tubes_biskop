@@ -7,7 +7,9 @@
             <a class="<?= $_GET['page'] == 'promo' ? 'active' : '' ?>" href="?page=promo" title="Promo">
                 <i class="promotion"></i>
             </a>
-
+            <a class="<?= $_GET['page'] == 'makanan' ? 'active' : '' ?>" href="?page=makanan" title="Makanan">
+                <i class="food"></i>
+            </a>
 
             <?php if (empty($_SESSION['login_customer'])) : ?>
                 <a href="#" data-toggle="modal" data-target="#modal_login" title="Masuk">

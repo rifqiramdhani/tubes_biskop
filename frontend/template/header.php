@@ -19,5 +19,6 @@
     <link rel="stylesheet" href="frontend/assets/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="frontend/assets/css/styles.css">
     <link href="<?= BASE_URL . 'assets/css/custom.css' ?>" rel="stylesheet">
-
+    <!-- datatables -->
+    <link rel="stylesheet" href="<?= BASE_URL . 'assets/vendors/datatables/datatables.min.css' ?>">
 </head>

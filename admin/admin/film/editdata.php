@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $durasi = htmlspecialchars($_POST['durasi']);
     $genre = htmlspecialchars($_POST['genre']);
     $kategori = htmlspecialchars($_POST['kategori']);
-    $tanggal_tayang = htmlspecialchars($_POST['tanggal_tayang']);
+    $tanggal_tayang = htmlspecialchars(date('Y-m-d', strtotime($_POST['tanggal_tayang'])));
     $foto_film = $_FILES['foto_film'];
 
     if (empty($foto_film['name'])) {
