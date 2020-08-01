@@ -41,6 +41,12 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link <?php if ($page == 'struk') echo 'active' ?>" href="<?= BASE_URL . 'admin/index.php?page=struk'; ?>">
+                    <i class="nav-icon fas fa-file-invoice"></i> Struk
+                </a>
+            </li>
+
             <li class="nav-title">DATA JADWAL</li>
             <li class="nav-item">
                 <a class="nav-link <?php if ($page == 'jadwal') echo 'active' ?>" href="<?= BASE_URL . 'admin/index.php?page=jadwal'; ?>">

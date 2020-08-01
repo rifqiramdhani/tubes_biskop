@@ -1,7 +1,8 @@
 <?php require_once('frontend/template/header.php') ?>
 <?php
-$query = mysqli_query($koneksi, "SELECT * FROM paket_makanan WHERE stok > 0");
 
+$id_customer = $_SESSION['id_customer'];
+$query = mysqli_query($koneksi, "SELECT id_customer, nama, jumlah, judul, nama_studio, jam_tayang, harga_tiket, total_harga_tiket FROM `tiket` JOIN customer USING(id_customer) JOIN detail_jadwal USING(id_dt_jadwal) JOIN film USING(id_film) JOIN studio USING(id_studio) JOIN jadwal USING(id_jadwal) WHERE id_customer = '$id_customer'");
 ?>
 
 <body>
@@ -16,7 +17,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM paket_makanan WHERE stok > 0");
                 <div class="container" style="margin-top: 80px;">
                     <div class="row">
                         <div class="col">
-                            <h2 class="text-center mb-5">Daftar Paket Makanan</h2>
+                            <h2 class="text-center mb-5">Tiket</h2>
                         </div>
                     </div>
                     <div class="row mb-5">
@@ -27,23 +28,28 @@ $query = mysqli_query($koneksi, "SELECT * FROM paket_makanan WHERE stok > 0");
                                         <table class="table" id="datamakanan">
                                             <thead>
                                                 <tr>
-                                                    <th>Nama Paket</th>
-                                                    <th>Harga</th>
-                                                    <th></th>
+                                                    <th>Nama</th>
+                                                    <th>Judul</th>
+                                                    <th>Studio</th>
+                                                    <th>Jam Tayang</th>
+                                                    <th>Harga Tiket</th>
+                                                    <th>Qty</th>
+                                                    <th>Total Bayar</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php while ($getdata = mysqli_fetch_assoc($query)) : ?>
                                                     <tr>
-                                                        <td><?= $getdata['nama_paket_makanan'] ?></td>
-                                                        <td><?= rupiah($getdata['harga']) ?></td>
-                                                        <td>
-                                                            <a href="#" class="btn btn-custom col-orange btn-block" data-toggle="modal" data-target="#modalmakanan<?= $getdata['id_paket_makanan'] ?>">Pesan</a>
-                                                        </td>
+                                                        <td><?= $getdata['nama'] ?></td>
+                                                        <td><?= $getdata['judul'] ?></td>
+                                                        <td><?= $getdata['nama_studio'] ?></td>
+                                                        <td><?= $getdata['jam_tayang'] ?></td>
+                                                        <td><?= rupiah($getdata['harga_tiket']) ?></td>
+                                                        <td><?= $getdata['jumlah'] ?></td>
+                                                        <td><?= rupiah($getdata['total_harga_tiket']) ?></td>
                                                     </tr>
 
-                                                <?php include('modalpesan.php');
-                                                endwhile ?>
+                                                <?php endwhile ?>
                                             </tbody>
                                         </table>
                                     </div>

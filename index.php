@@ -23,9 +23,6 @@ if ($page) {
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Form Login</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group has-feedback">
@@ -42,9 +39,6 @@ if ($page) {
                         <span class="help-block with-errors"></span>
                     </div>
 
-                    <div class="form-group has-feedback">
-                        <button type="button" class="btn btn-link btn-sm" id="lupapassword">Lupa password?</button>
-                    </div>
 
                 </div>
                 <div class="modal-footer">

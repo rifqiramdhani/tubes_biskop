@@ -16,6 +16,9 @@
                     <i class="login"></i>
                 </a>
             <?php else : ?>
+                <a class="<?= $_GET['page'] == 'tiket' ? 'active' : '' ?>" href="?page=tiket" title="Tiket">
+                    <i class="tiket"></i>
+                </a>
                 <a href="frontend/olahdata/logout.php" title="Keluar">
                     <i class="logout"></i>
                 </a>

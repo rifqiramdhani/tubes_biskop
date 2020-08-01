@@ -340,6 +340,10 @@ i.food:hover {
   background: url("../../assets/img/img-sprite.png") no-repeat -617px -58px;
 }
 
+i.tiket:hover {
+  background: url("../../assets/img/img-sprite.png") no-repeat -181px -58px;
+}
+
 
 i.home {
   width: 60px;
@@ -379,6 +383,13 @@ i.logout {
 i.food {
   width: 60px;
   background: url("../../assets/img/img-sprite.png") no-repeat -617px 0px;
+  height: 60px;
+  display: block;
+}
+
+i.tiket {
+  width: 60px;
+  background: url("../../assets/img/img-sprite.png") no-repeat -181px 0px;
   height: 60px;
   display: block;
 }

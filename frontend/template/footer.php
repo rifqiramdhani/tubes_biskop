@@ -19,6 +19,8 @@
 <script src="<?= BASE_URL . 'assets/js/sweetalert2.all.min.js' ?>"></script>
 <!-- datatables -->
 <script src="<?= BASE_URL . 'assets/vendors/datatables/datatables.min.js' ?>"></script>
+<!-- form validation -->
+<script src="<?= BASE_URL . 'assets/node_modules/bootstrap-validator/dist/validator.min.js'; ?>"></script>
 
 <script>
     $(document).ready(function() {
@@ -82,9 +84,9 @@
 
         //datamakanan
         $("#datamakanan").dataTable()
-        $('#datamakanan').on('click', 'input[name="qty"]', function(e) {
+        $('#datamakanan').on('change', '.qty', function(e) {
             e.preventDefault();
-            alert('ha')
+            console.log('ada')
         });
     })
 </script>
