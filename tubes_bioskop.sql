@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 01, 2020 at 11:09 AM
+-- Generation Time: Aug 06, 2020 at 02:46 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -70,7 +70,8 @@ CREATE TABLE `customer` (
 INSERT INTO `customer` (`id_customer`, `id_admin`, `email`, `password`, `nama`, `alamat`, `no_telepon`, `jenis_kelamin`, `tempat_tanggal_lahir`, `status`) VALUES
 (1, 1, 'rifqiramdhani8@gmail.com', '$2y$10$oCa1v2wPh7bZEMUWXDGSKORvByrB/FcyWS7JTs2ecQDugbKmFdqcS', 'Rifqi Ramdhani', 'Jl. Cimareme Indah No. 27 Kab. Bandung12 B123', '081393003129', 'Laki-laki', 'Bandung, 21 April 1999', 'member'),
 (2, 1, 'ruyatsy@gmail.com', '$2y$10$H3aNnnOqriHxJzuSTGf2C.OlS1H9NX12P66PjHQLHUA2.YB3.nHl2', 'Ruyatsyah', 'Desa ciandam, cianjur', '08199392881', 'Laki-laki', 'Cianjur, 22 Desember 1999', 'member'),
-(8, NULL, '', '', 'Ruyat', 'Mande , Cianjur No 1', '081238183213', 'Laki-laki', '', 'nonmember');
+(8, NULL, '', '', 'Ruyat', 'Mande , Cianjur No 1', '081238183213', 'Laki-laki', '', 'nonmember'),
+(9, NULL, 'yolanda@gmail.com', '$2y$10$QPZsLrhEcR8EHDC2HUEu.emNNFm6imrpkgHxC87hqbuUL4vs412te', 'rifqi ramdhani', 'unikom bandung', '081393003129', 'Laki-laki', 'Bandung, 21 April 1999', 'member');
 
 -- --------------------------------------------------------
 
@@ -85,15 +86,6 @@ CREATE TABLE `detail_jadwal` (
   `id_film` int(11) NOT NULL,
   `id_studio` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `detail_jadwal`
---
-
-INSERT INTO `detail_jadwal` (`id_dt_jadwal`, `id_admin`, `id_jadwal`, `id_film`, `id_studio`) VALUES
-(1, 1, 4, 1, 2),
-(2, 1, 3, 1, 2),
-(4, 1, 2, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -117,7 +109,31 @@ CREATE TABLE `film` (
 
 INSERT INTO `film` (`id_film`, `judul`, `durasi`, `genre`, `kategori`, `direktori`, `tanggal_tayang`) VALUES
 (1, 'Toy Story 4', '120 min', 'Petualangan', '13++', '95169057.jpeg', '2020-07-31'),
-(2, 'Captain America : Civil War', '120 min', 'Action', '15++', '61283097.jpg', '2020-08-06');
+(16, 'Sonic', '99 min', 'Komedi', '15 ++', '34504186.jpg', '2020-08-28'),
+(17, 'Trip to Greece', '110 min', 'Komedi', '18 ++', '71179432.jpg', '2020-08-22'),
+(18, 'The Wretched', '99 min', 'Horror', '18 ++', '25001529.jpg', '2020-08-27'),
+(19, 'Military Wilves', '104 min', 'Drama', '18 ++', '14922701.jpg', '2020-08-31'),
+(22, 'Dream Horse', '113 min', 'Drama', '15 ++', '43968191.jpg', '2020-09-05'),
+(23, 'Blade Runner', '184 min', 'Action', '18 ++', '62679873.jpg', '2020-09-06'),
+(24, 'Braveheart', '178 min', 'Drama', '18 ++', '96608229.jpg', '2020-09-07'),
+(25, 'Cicade de Deus', '130 min', 'Drama', '18 ++', '99366878.jpg', '2020-09-09'),
+(28, 'Gladiator', '195 min', 'Action', '18 ++', '73644071.jpg', '2020-09-13'),
+(29, 'Glory', '122 min', 'Drama', '18 ++', '91440666.jpg', '2020-09-14'),
+(30, 'Gone Girl', '149 min', 'Drama', '18 ++', '66146127.jpg', '2020-09-15'),
+(31, 'Goodfellas', '146 min', 'Drama', '18 ++', '16444837.jpg', '2020-09-16'),
+(32, 'Grand Torino', '116 min', 'Drama', '18 ++', '13718107.jpg', '2020-09-16'),
+(33, 'Heat', '170 min', 'Drama', '18 ++', '17021149.jpg', '2020-09-17'),
+(34, 'Her', '126 min', 'Romantis', '15 ++', '74955577.jpg', '2020-09-18'),
+(35, 'Interstellar', '169 min', 'Petualangan', '18 ++', '69049891.jpg', '2020-09-20'),
+(37, 'Logan', '137 min', 'Action', '15 ++', '7863612.jpg', '2020-09-29'),
+(38, 'Nightcrawler', '117 min', 'Drama', '18 ++', '38110879.jpg', '2020-09-30'),
+(39, 'Okuribito', '130 min', 'Drama', '15 ++', '62791236.jpg', '2020-10-01'),
+(40, 'Rush', '123 min', 'Drama', '15 ++', '73987329.jpg', '2020-10-02'),
+(41, 'Saving Private Ryan', '184 min', 'Drama', '18 ++', '43759296.jpg', '2020-10-03'),
+(44, 'The Lion King', '86 min', 'Petualangan', '15 ++', '6710461.jpg', '2020-10-14'),
+(46, 'The Prestige', '130 min', 'Drama', '15 ++', '77378249.jpg', '2020-10-16'),
+(47, 'Yip Man', '104 min', 'Action', '15 ++', '18969371.jpg', '2020-10-17'),
+(48, 'The Shawmshank', '144 min', 'Drama', '18 ++', '56611015.jpg', '2020-10-18');
 
 -- --------------------------------------------------------
 
@@ -226,14 +242,6 @@ CREATE TABLE `tiket` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tiket`
---
-
-INSERT INTO `tiket` (`id_tiket`, `id_customer`, `id_dt_jadwal`, `no_kursi`, `jumlah`, `harga_tiket`, `total_harga_tiket`, `tanggal`, `metode_pembayaran`) VALUES
-(1, 1, 1, 'A001', 1, 20000, 20000, '2020-07-31 00:00:00', 'OVO'),
-(9, 8, 4, 'A002', 1, 35000, 35000, '2020-07-31 20:34:41', 'GOPAY');
-
---
 -- Indexes for dumped tables
 --
 
@@ -309,25 +317,25 @@ ALTER TABLE `tiket`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `detail_jadwal`
 --
 ALTER TABLE `detail_jadwal`
-  MODIFY `id_dt_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_dt_jadwal` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `film`
 --
 ALTER TABLE `film`
-  MODIFY `id_film` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_film` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `jadwal`
@@ -351,13 +359,13 @@ ALTER TABLE `struk`
 -- AUTO_INCREMENT for table `studio`
 --
 ALTER TABLE `studio`
-  MODIFY `id_studio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_studio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tiket`
 --
 ALTER TABLE `tiket`
-  MODIFY `id_tiket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_tiket` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
