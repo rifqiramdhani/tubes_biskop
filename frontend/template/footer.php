@@ -66,24 +66,42 @@
         }
 
         //pilih kursi
-        $('input[name="kursi[]"]').on("change", function() {
-            var jumlah = $('input[name="kursi[]"]:checked').length;
+        <?php if (isset($_SESSION['login_customer'])) : ?>
+            $('input[name="kursi[]"]').on("change", function() {
+                var jumlah = $('input[name="kursi[]"]:checked').length;
 
-            $('#jumlah').val(jumlah)
+                $('#jumlah').val(jumlah)
 
-            var harga = 35000
-            var total_harga = 0
-            var diskon = 0
+                var harga = 35000
+                var total_harga = 0
+                var diskon = 0
 
-            if (jumlah == 5) {
-                diskon = (harga * jumlah) * 0.2
-                total_harga = (harga * jumlah) - diskon
-            } else {
+                if (jumlah == 5) {
+                    diskon = (harga * jumlah) * 0.2
+                    total_harga = (harga * jumlah) - diskon
+                } else {
+                    total_harga = harga * jumlah
+                }
+
+                $("#total_harga").val("Rp. " + total_harga)
+            })
+        <?php else : ?>
+
+            $('input[name="kursi[]"]').on("change", function() {
+                var jumlah = $('input[name="kursi[]"]:checked').length;
+
+                $('#jumlah').val(jumlah)
+
+                var harga = 35000
+                var total_harga = 0
+                var diskon = 0
+
                 total_harga = harga * jumlah
-            }
 
-            $("#total_harga").val("Rp. " + total_harga)
-        })
+                $("#total_harga").val("Rp. " + total_harga)
+            })
+
+        <?php endif ?>
 
         $('#pesansekarang').click(function() {
             checked = $('input[name="kursi[]"]:checked').length;
