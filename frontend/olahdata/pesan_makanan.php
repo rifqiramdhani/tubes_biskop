@@ -28,8 +28,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pembayaran = htmlspecialchars(ucwords($_POST['pembayaran']));
     $nama = htmlspecialchars(ucwords($_POST['nama']));
     $email = htmlspecialchars(ucwords($_POST['email']));
-    $total_harga = $harga * $qty;
     $tanggal = date('Y-m-d H:i:s');
+
+    if(isset($_SESSION['login_customer'])){
+        $total_harga = $harga * $qty * 0.15;
+    }else{
+        $total_harga = $harga * $qty;
+
+    }
 
     $sql = mysqli_query($koneksi, "INSERT INTO `struk`(`id_paket_makanan`, `nama`, `email`, `metode_pembayaran`, `total_harga`, `qty`, `tanggal`) VALUES ('$id_paket_makanan', '$nama', '$email', '$pembayaran', '$total_harga', '$qty', '$tanggal')");
 
