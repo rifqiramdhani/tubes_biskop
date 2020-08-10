@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2020 at 02:46 PM
+-- Generation Time: Aug 10, 2020 at 09:48 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `tubes_bioskop`
 --
+CREATE DATABASE IF NOT EXISTS `tubes_bioskop` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `tubes_bioskop`;
 
 -- --------------------------------------------------------
 
@@ -28,6 +30,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
+DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
   `id_admin` int(11) NOT NULL,
   `nama` varchar(50) NOT NULL,
@@ -50,6 +53,7 @@ INSERT INTO `admin` (`id_admin`, `nama`, `email`, `password`, `level`) VALUES
 -- Table structure for table `customer`
 --
 
+DROP TABLE IF EXISTS `customer`;
 CREATE TABLE `customer` (
   `id_customer` int(11) NOT NULL,
   `id_admin` int(11) DEFAULT NULL,
@@ -79,6 +83,7 @@ INSERT INTO `customer` (`id_customer`, `id_admin`, `email`, `password`, `nama`, 
 -- Table structure for table `detail_jadwal`
 --
 
+DROP TABLE IF EXISTS `detail_jadwal`;
 CREATE TABLE `detail_jadwal` (
   `id_dt_jadwal` int(11) NOT NULL,
   `id_admin` int(11) NOT NULL,
@@ -87,12 +92,20 @@ CREATE TABLE `detail_jadwal` (
   `id_studio` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `detail_jadwal`
+--
+
+INSERT INTO `detail_jadwal` (`id_dt_jadwal`, `id_admin`, `id_jadwal`, `id_film`, `id_studio`) VALUES
+(1, 1, 3, 1, 2);
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `film`
 --
 
+DROP TABLE IF EXISTS `film`;
 CREATE TABLE `film` (
   `id_film` int(11) NOT NULL,
   `judul` varchar(50) NOT NULL,
@@ -141,6 +154,7 @@ INSERT INTO `film` (`id_film`, `judul`, `durasi`, `genre`, `kategori`, `direktor
 -- Table structure for table `jadwal`
 --
 
+DROP TABLE IF EXISTS `jadwal`;
 CREATE TABLE `jadwal` (
   `id_jadwal` int(11) NOT NULL,
   `jam_tayang` time NOT NULL
@@ -161,6 +175,7 @@ INSERT INTO `jadwal` (`id_jadwal`, `jam_tayang`) VALUES
 -- Table structure for table `paket_makanan`
 --
 
+DROP TABLE IF EXISTS `paket_makanan`;
 CREATE TABLE `paket_makanan` (
   `id_paket_makanan` int(11) NOT NULL,
   `nama_paket_makanan` varchar(50) NOT NULL,
@@ -184,9 +199,11 @@ INSERT INTO `paket_makanan` (`id_paket_makanan`, `nama_paket_makanan`, `harga`, 
 -- Table structure for table `struk`
 --
 
+DROP TABLE IF EXISTS `struk`;
 CREATE TABLE `struk` (
   `id_struk` int(11) NOT NULL,
   `id_paket_makanan` int(11) NOT NULL,
+  `id_customer` int(11) DEFAULT NULL,
   `nama` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `total_harga` int(7) NOT NULL,
@@ -199,10 +216,10 @@ CREATE TABLE `struk` (
 -- Dumping data for table `struk`
 --
 
-INSERT INTO `struk` (`id_struk`, `id_paket_makanan`, `nama`, `email`, `total_harga`, `qty`, `metode_pembayaran`, `tanggal`) VALUES
-(1, 2, 'Rifqi Ramdhani', 'Rifqiramdhani8@gmail.com', 50000, 1, 'GOPAY', '2020-08-01 08:16:35'),
-(2, 2, 'Rifqi Ramdhani', 'Rifqiramdhani8@gmail.com', 50000, 1, 'GOPAY', '2020-08-01 08:16:57'),
-(3, 2, 'Rifqi Ramdhani', 'Rifqiramdhani8@gmail.com', 50000, 1, 'GOPAY', '2020-08-01 08:20:32');
+INSERT INTO `struk` (`id_struk`, `id_paket_makanan`, `id_customer`, `nama`, `email`, `total_harga`, `qty`, `metode_pembayaran`, `tanggal`) VALUES
+(1, 2, NULL, 'Rifqi Ramdhani', 'Rifqiramdhani8@gmail.com', 50000, 1, 'GOPAY', '2020-08-01 08:16:35'),
+(2, 2, NULL, 'Rifqi Ramdhani', 'Rifqiramdhani8@gmail.com', 50000, 1, 'GOPAY', '2020-08-01 08:16:57'),
+(3, 2, NULL, 'Rifqi Ramdhani', 'Rifqiramdhani8@gmail.com', 50000, 1, 'GOPAY', '2020-08-01 08:20:32');
 
 -- --------------------------------------------------------
 
@@ -210,6 +227,7 @@ INSERT INTO `struk` (`id_struk`, `id_paket_makanan`, `nama`, `email`, `total_har
 -- Table structure for table `studio`
 --
 
+DROP TABLE IF EXISTS `studio`;
 CREATE TABLE `studio` (
   `id_studio` int(11) NOT NULL,
   `nama_studio` varchar(10) NOT NULL
@@ -229,6 +247,7 @@ INSERT INTO `studio` (`id_studio`, `nama_studio`) VALUES
 -- Table structure for table `tiket`
 --
 
+DROP TABLE IF EXISTS `tiket`;
 CREATE TABLE `tiket` (
   `id_tiket` int(11) NOT NULL,
   `id_customer` int(11) NOT NULL,
@@ -240,6 +259,14 @@ CREATE TABLE `tiket` (
   `tanggal` datetime NOT NULL,
   `metode_pembayaran` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tiket`
+--
+
+INSERT INTO `tiket` (`id_tiket`, `id_customer`, `id_dt_jadwal`, `no_kursi`, `jumlah`, `harga_tiket`, `total_harga_tiket`, `tanggal`, `metode_pembayaran`) VALUES
+(5, 2, 1, 'I002', 5, 35000, 140000, '2020-08-10 09:20:49', 'OVO'),
+(6, 9, 1, 'J004', 2, 35000, 70000, '2020-08-10 09:29:42', 'OVO');
 
 --
 -- Indexes for dumped tables
@@ -293,7 +320,8 @@ ALTER TABLE `paket_makanan`
 --
 ALTER TABLE `struk`
   ADD PRIMARY KEY (`id_struk`),
-  ADD KEY `id_paket_makanan` (`id_paket_makanan`);
+  ADD KEY `id_paket_makanan` (`id_paket_makanan`),
+  ADD KEY `id_customer` (`id_customer`);
 
 --
 -- Indexes for table `studio`
@@ -323,13 +351,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `detail_jadwal`
 --
 ALTER TABLE `detail_jadwal`
-  MODIFY `id_dt_jadwal` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_dt_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `film`
@@ -353,7 +381,7 @@ ALTER TABLE `paket_makanan`
 -- AUTO_INCREMENT for table `struk`
 --
 ALTER TABLE `struk`
-  MODIFY `id_struk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_struk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `studio`
@@ -365,7 +393,7 @@ ALTER TABLE `studio`
 -- AUTO_INCREMENT for table `tiket`
 --
 ALTER TABLE `tiket`
-  MODIFY `id_tiket` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tiket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
@@ -390,7 +418,8 @@ ALTER TABLE `detail_jadwal`
 -- Constraints for table `struk`
 --
 ALTER TABLE `struk`
-  ADD CONSTRAINT `struk_ibfk_1` FOREIGN KEY (`id_paket_makanan`) REFERENCES `paket_makanan` (`id_paket_makanan`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `struk_ibfk_1` FOREIGN KEY (`id_paket_makanan`) REFERENCES `paket_makanan` (`id_paket_makanan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `struk_ibfk_2` FOREIGN KEY (`id_customer`) REFERENCES `customer` (`id_customer`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tiket`
