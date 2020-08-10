@@ -24,9 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_film = htmlspecialchars(ucwords($_POST['id_film']));
     $pembayaran = htmlspecialchars(ucwords($_POST['pembayaran']));
     $kursi = ($_POST['kursi']);
-    $jumlah = htmlspecialchars(ucwords($_POST['jumlah']));
+    $jumlah = ($_POST['jumlah']);
     $harga_tiket = 35000;
-    $total_harga_tiket = $harga_tiket * $jumlah;
+    
     $tanggal = date('Y-m-d H:i:s');
 
     $no_kursi = "";
@@ -47,6 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $telepon  = htmlspecialchars(ucwords($_POST['telepon']));
         $alamat = htmlspecialchars(ucwords($_POST['alamat']));
         $email = htmlspecialchars(ucwords($_POST['email']));
+
+        $total_harga_tiket = $harga_tiket * $jumlah;
 
         //insert to customer
         $queryCek = mysqli_query($koneksi, "SELECT * FROM customer WHERE email = '$email'");
@@ -106,7 +108,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }else{
         $id_customer = $_SESSION['id_customer'];
 
-        $diskon = $total_harga_tiket;
+        $total_harga_tiket = $harga_tiket * $jumlah;
+
+        $diskon = $total_harga_tiket * 0.2;
         $final_total_harga = $total_harga_tiket - $diskon;
 
         $sql = mysqli_query($koneksi, "INSERT INTO `tiket`(`id_customer`, `id_dt_jadwal`, `no_kursi`, `jumlah`, `harga_tiket`, `total_harga_tiket`, `tanggal`, `metode_pembayaran`) VALUES ('$id_customer', '$id_dt_jadwal', '$no_kursi', '$jumlah', '$harga_tiket', '$final_total_harga', '$tanggal', '$pembayaran')");

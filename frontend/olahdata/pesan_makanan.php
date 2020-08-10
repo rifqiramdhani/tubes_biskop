@@ -34,7 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $total_harga = $harga * $qty * 0.15;
     }else{
         $total_harga = $harga * $qty;
-
     }
 
     $sql = mysqli_query($koneksi, "INSERT INTO `struk`(`id_paket_makanan`, `nama`, `email`, `metode_pembayaran`, `total_harga`, `qty`, `tanggal`) VALUES ('$id_paket_makanan', '$nama', '$email', '$pembayaran', '$total_harga', '$qty', '$tanggal')");
