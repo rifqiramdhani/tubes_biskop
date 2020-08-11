@@ -38,7 +38,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM `paket_makanan`");
                             <tr id="<?= $getdata['id_paket_makanan'] ?>">
                                 <td><?= $i++ ?></td>
                                 <td><?= $getdata['nama_paket_makanan'] ?></td>
-                                <td><?= $getdata['harga'] ?></td>
+                                <td><?= rupiah($getdata['harga']) ?></td>
                                 <td><?= $getdata['stok'] ?></td>
                                 <td>
                                     <a href="<?= BASE_URL . 'admin/index.php?page=paket-makanan&action=editdata&id=' . $getdata['id_paket_makanan'] ?>" class="btn btn-sm btn-primary mt-1"><i class="fas fa-edit"></i></a>

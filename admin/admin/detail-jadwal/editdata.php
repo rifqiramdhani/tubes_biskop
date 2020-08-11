@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
 
                 <div class="form-group mx-auto">
-                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Simpan</button>
+                    <button type="button" id="ubahdetailjadwal" data-nama="Detail Jadwal"  class="btn btn-success"><i class="fas fa-save"></i> Simpan</button>
                     <a href="<?= BASE_URL . 'admin/index.php?page=detail-jadwal' ?>" class="btn btn-warning"><i class="fas fa-reply"></i> Kembali</a>
                 </div>
 

@@ -5,8 +5,6 @@ function hapusdata(title, url, id, nama) {
         text: "Ingin Menghapus Data " + nama,
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#db3325',
-        cancelButtonColor: '#f5a732',
         confirmButtonText: "Yakin",
         cancelButtonText: "Tidak",
     }).then((result) => {
@@ -33,6 +31,24 @@ function hapusdata(title, url, id, nama) {
     })
 }
 
+//function swall alert ubah data
+function ubahdata(nama, form){
+    
+    Swal.fire({
+        title: 'Apakah anda yakin',
+        text: "Ingin Mengubah Data " + nama,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: "Yakin",
+        cancelButtonText: "Tidak",
+    }).then((result) => {
+        console.log(result)
+        if (result.value) {
+            form.submit()
+        }
+    })
+}
+
 function swalhref(link, titletext) {
     Swal.fire({
         title: 'Apakah anda yakin?',
@@ -47,3 +63,4 @@ function swalhref(link, titletext) {
         }
     })
 }
+

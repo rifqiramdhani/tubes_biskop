@@ -6,7 +6,7 @@ $getdata = mysqli_fetch_assoc($query);
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $tanggal = htmlspecialchars(date('Y-m-d', strtotime($_POST['tanggal'])));
+    // $tanggal = htmlspecialchars(date('Y-m-d', strtotime($_POST['tanggal'])));
     $jam_tayang = htmlspecialchars($_POST['jam_tayang']);
 
     $sql = mysqli_query($koneksi, "UPDATE `jadwal` SET `jam_tayang`='$jam_tayang' WHERE `id_jadwal` = '$id'");
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
 
                 <div class="form-group mx-auto">
-                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Simpan</button>
+                    <button type="button" id="ubahjadwal" data-nama="<?= date('H:i', strtotime($getdata['jam_tayang'])) ?>" class="btn btn-success"><i class="fas fa-save"></i> Simpan</button>
                     <a href="<?= BASE_URL . 'admin/index.php?page=jadwal' ?>" class="btn btn-warning"><i class="fas fa-reply"></i> Kembali</a>
                 </div>
 

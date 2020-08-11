@@ -12,7 +12,7 @@ $query = mysqli_query($koneksi, "SELECT id_customer, nama, jumlah, judul, nama_s
         <div class="main-content">
             <div class="min-vh-100">
                 <div class="top-header">
-                    <div class="logo"><a href="#"><img src="frontend/assets/img/logo.png"></a></div>
+                    <div class="logo"><a href="index.php"><img src="frontend/assets/img/logo.png"></a></div>
                 </div>
                 <div class="container" style="margin-top: 80px;">
                     <div class="row">

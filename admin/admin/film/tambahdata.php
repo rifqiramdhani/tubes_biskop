@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="form-group mx-auto">
                     <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Simpan</button>
-                    <a href="<?= BASE_URL . 'admin/index.php?page=admin' ?>" class="btn btn-warning"><i class="fas fa-reply"></i> Kembali</a>
+                    <a href="<?= BASE_URL . 'admin/index.php?page=film' ?>" class="btn btn-warning"><i class="fas fa-reply"></i> Kembali</a>
                 </div>
 
             </form>

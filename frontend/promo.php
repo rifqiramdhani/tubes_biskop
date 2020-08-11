@@ -8,7 +8,7 @@
         <div class="main-content">
             <div class="min-vh-100">
                 <div class="top-header">
-                    <div class="logo"><a href="#"><img src="frontend/assets/img/logo.png"></a></div>
+                    <div class="logo"><a href="index.php"><img src="frontend/assets/img/logo.png"></a></div>
                 </div>
                 <div id="owl-demo" class="owl-carousel owl-theme">
                     <div class="item"><img alt="Owl Image" src="frontend/assets/img/promo1.jpg"></div>

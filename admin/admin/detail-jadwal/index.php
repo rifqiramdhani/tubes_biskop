@@ -1,5 +1,5 @@
 <?php
-$query = mysqli_query($koneksi, "SELECT id_dt_jadwal, jam_tayang, judul, durasi, genre, kategori, direktori, nama_studio FROM `detail_jadwal` JOIN admin USING(id_admin) JOIN jadwal USING(id_jadwal) JOIN film USING(id_film) JOIN studio USING(id_studio)");
+$query = mysqli_query($koneksi, "SELECT id_dt_jadwal, jam_tayang, judul, durasi, genre, kategori, direktori, nama_studio FROM `detail_jadwal` JOIN admin USING(id_admin) JOIN jadwal USING(id_jadwal) JOIN film USING(id_film) JOIN studio USING(id_studio) ORDER BY judul ASC");
 ?>
 
 <!-- <div class="flash-data" data-flashdata=""></div> -->

@@ -22,7 +22,7 @@ endif;
         <div class="main-content">
             <div class="header">
                 <div class="top-header">
-                    <div class="logo"><a href="#"><img src="frontend/assets/img/logo.png"></a></div>
+                    <div class="logo"><a href="index.php"><img src="frontend/assets/img/logo.png"></a></div>
                 </div>
                 <div class="info-header">
                     <h1>Big Hero 6</h1>

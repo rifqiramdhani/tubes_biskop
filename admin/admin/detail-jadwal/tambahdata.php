@@ -1,6 +1,6 @@
 <?php
 $queryFilm = mysqli_query($koneksi, "SELECT * FROM film");
-$queryJadwal = mysqli_query($koneksi, "SELECT * FROM jadwal");
+$queryJadwal = mysqli_query($koneksi, "SELECT * FROM jadwal ORDER BY jam_tayang ASC");
 $queryStudio = mysqli_query($koneksi, "SELECT * FROM studio ORDER BY nama_studio ASC");
 $id_admin = $_SESSION['id_admin'];
 

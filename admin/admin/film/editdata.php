@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="form-group has-feedback">
                     <label for="tanggal_tayang">Tanggal Tayang</label>
-                    <input type="text" class="form-control" id="datepicker" name="tanggal_tayang" value="<?= $getdata['tanggal_tayang'] ?>" data-required-error="Data tidak boleh kosong" onkeypress="return false" required>
+                    <input type="text" class="form-control" id="datepicker" name="tanggal_tayang" value="<?= date('d-m-Y', strtotime($getdata['tanggal_tayang'])) ?>" data-required-error="Data tidak boleh kosong" onkeypress="return false" required>
                     <span class="help-block with-errors"></span>
                 </div>
 
@@ -130,8 +130,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
 
                 <div class="form-group mx-auto">
-                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Simpan</button>
-                    <a href="<?= BASE_URL . 'admin/index.php?page=admin' ?>" class="btn btn-warning"><i class="fas fa-reply"></i> Kembali</a>
+                    <button type="button" id="ubahfilm" data-nama="<?= $getdata['judul'] ?>" class="btn btn-success"><i class="fas fa-save"></i> Simpan</button>
+                    <a href="<?= BASE_URL . 'admin/index.php?page=film' ?>" class="btn btn-warning"><i class="fas fa-reply"></i> Kembali</a>
                 </div>
 
             </form>

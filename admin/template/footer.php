@@ -114,7 +114,6 @@
             hapusdata('Data Admin', "?page=admin&action=deletedata&id=", id, nama)
         });
 
-
         //datastudio
         $("#datastudio").dataTable()
         $("#datastudio").on('click', '.remove', function() {
@@ -154,6 +153,42 @@
             var id = $(this).data('id');
             var nama = $(this).data('nama');
             hapusdata('Data Detail Jadwal', "?page=detail-jadwal&action=deletedata&id=", id, nama)
+        })
+
+        $("#ubahadmin").on('click', function() {
+            var nama = $(this).data('nama')
+            var form = $(this).parents('form')
+            ubahdata(nama, form)
+        })
+
+        $("#ubahfilm").on('click', function() {
+            var nama = $(this).data('nama')
+            var form = $(this).parents('form')
+            ubahdata(nama, form)
+        })
+
+        $("#ubahmakanan").on('click', function() {
+            var nama = $(this).data('nama')
+            var form = $(this).parents('form')
+            ubahdata(nama, form)
+        })
+
+        $("#ubahstudio").on('click', function() {
+            var nama = $(this).data('nama')
+            var form = $(this).parents('form')
+            ubahdata(nama, form)
+        })
+
+        $("#ubahjadwal").on('click', function() {
+            var nama = $(this).data('nama')
+            var form = $(this).parents('form')
+            ubahdata(nama, form)
+        })
+
+        $("#ubahdetailjadwal").on('click', function() {
+            var nama = $(this).data('nama')
+            var form = $(this).parents('form')
+            ubahdata(nama, form)
         })
 
 
