@@ -108,10 +108,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }else{
         $id_customer = $_SESSION['id_customer'];
 
-        $total_harga_tiket = $harga_tiket * $jumlah;
-
-        $diskon = $total_harga_tiket * 0.2;
-        $final_total_harga = $total_harga_tiket - $diskon;
+        
+        if($jumlah == 5){
+            $total_harga_tiket = $harga_tiket * $jumlah;
+            $diskon = $total_harga_tiket * 0.2;
+            $final_total_harga = $total_harga_tiket - $diskon;
+        }else{
+            $final_total_harga = $harga_tiket * $jumlah;
+        }
 
         $sql = mysqli_query($koneksi, "INSERT INTO `tiket`(`id_customer`, `id_dt_jadwal`, `no_kursi`, `jumlah`, `harga_tiket`, `total_harga_tiket`, `tanggal`, `metode_pembayaran`) VALUES ('$id_customer', '$id_dt_jadwal', '$no_kursi', '$jumlah', '$harga_tiket', '$final_total_harga', '$tanggal', '$pembayaran')");
 

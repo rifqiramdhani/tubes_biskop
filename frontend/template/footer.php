@@ -76,12 +76,7 @@
                 var total_harga = 0
                 var diskon = 0
 
-                if (jumlah == 5) {
-                    diskon = (harga * jumlah) * 0.2
-                    total_harga = (harga * jumlah) - diskon
-                } else {
-                    total_harga = harga * jumlah
-                }
+                total_harga = harga * jumlah
 
                 $("#total_harga").val("Rp. " + total_harga)
             })
