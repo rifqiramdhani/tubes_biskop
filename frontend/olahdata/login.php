@@ -16,7 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = [
                 'login_customer' => true,
                 'email_customer' => $email,
-                'id_customer' => $getdata['id_customer']
+                'id_customer' => $getdata['id_customer'],
+                'nama_customer' => $getdata['nama']
             ];
 
             //fungsi memasukkan data kedalam session

@@ -33,47 +33,27 @@
                         <span class="help-block with-errors"></span>
                     </div>
 
-                    <div class="form-group">
-                        <label>Metode Pembayaran</label>
-                        <div class="text-center">
-                            <label class="mt-2"><img src="frontend/assets/img/ovo.png" alt="OVO" width="80px">
-                                <input style="display:block; margin: auto;" type="radio" name="pembayaran" value="OVO" required />
-                            </label>
-                            <label class="mt-2 ml-5"><img src="frontend/assets/img/gopay.png" alt="GOPAY" width="100px">
-                                <input style="display:block; margin: auto;margin-top: 7px" type="radio" name="pembayaran" value="GOPAY" required />
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-group has-feedback">
-                        <label>Nama</label>
-                        <input type="text" class="form-control" name="nama" data-required-error="Data tidak boleh kosong" required>
-                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                        <span class="help-block with-errors"></span>
-                    </div>
 
 
 
                     <?php if (empty($_SESSION['login_customer'])) : ?>
+
                         <div class="form-group has-feedback">
-                            <label>Email</label>
-                            <input type="email" class="form-control" name="email" data-required-error="Data tidak boleh kosong" required>
+                            <label>Nama</label>
+                            <input type="text" class="form-control" name="nama" data-required-error="Data tidak boleh kosong" required>
                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             <span class="help-block with-errors"></span>
                         </div>
                     <?php else : ?>
+
                         <div class="form-group has-feedback">
-                            <label>Email</label>
-                            <input type="email" class="form-control" name="email" data-required-error="Data tidak boleh kosong" value="<?= $_SESSION['email_customer'] ?>" required readonly>
+                            <label>Nama</label>
+                            <input type="text" value="<?= $_SESSION['nama_customer'] ?>" class="form-control" name="nama" data-required-error="Data tidak boleh kosong" required>
                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             <span class="help-block with-errors"></span>
                         </div>
+
                     <?php endif ?>
-
-                    <div class="form-group">
-                        <span class="text-danger" style="font-size: 13px;">* Email digunakan untuk mencetak tiket, silahkan gunakan email aktif anda.</span>
-                    </div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-success btn-sm">Pesan</button>

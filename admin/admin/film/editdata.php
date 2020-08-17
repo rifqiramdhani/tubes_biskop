@@ -101,17 +101,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
 
                 <div class="form-group has-feedback">
-                    <label for="genre">Genre</label>
-                    <select name="genre" id="genre" class="form-control" data-required-error="Data tidak boleh kosong" required>
-                        <option value="">-Pilih Genre-</option>
-                        <option value="Action" <?= $getdata['genre'] == 'Action' ? 'selected' : '' ?>>Action</option>
-                        <option value="Petualangan" <?= $getdata['genre'] == 'Petualangan' ? 'selected' : '' ?>>Petualangan</option>
-                        <option value="Komedi" <?= $getdata['genre'] == 'Komedi' ? 'selected' : '' ?>>Komedi</option>
-                        <option value="Drama" <?= $getdata['genre'] == 'Drama' ? 'selected' : '' ?>>Drama</option>
-                        <option value="Horror" <?= $getdata['genre'] == 'Horror' ? 'selected' : '' ?>>Horror</option>
-                        <option value="Romantis" <?= $getdata['genre'] == 'Romantis' ? 'selected' : '' ?>>Romantis</option>
-                        <option value="Science Fiction" <?= $getdata['genre'] == 'Science Fiction' ? 'selected' : '' ?>>Science Fiction</option>
-                    </select>
+                    <label for="genre">Genre</label> <br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="genre" <?= $getdata['genre'] == 'Action' ? 'checked' : '' ?> id="Action" value="Action" required>
+                        <label class="form-check-label" for="Action">Action</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="genre" <?= $getdata['genre'] == 'Petualangan' ? 'checked' : '' ?> id="Petualangan" value="Petualangan" required>
+                        <label class="form-check-label" for="Petualangan">Petualangan</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="genre" <?= $getdata['genre'] == 'Komedi' ? 'checked' : '' ?> id="Komedi" value="Komedi" required>
+                        <label class="form-check-label" for="Komedi">Komedi</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="genre" <?= $getdata['genre'] == 'Drama' ? 'checked' : '' ?> id="Drama" value="Drama" required>
+                        <label class="form-check-label" for="Drama">Drama</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="genre" <?= $getdata['genre'] == 'Horror' ? 'checked' : '' ?> id="Horror" value="Horror" required>
+                        <label class="form-check-label" for="Horror">Horror</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="genre" <?= $getdata['genre'] == 'Romantis' ? 'checked' : '' ?> id="Romantis" value="Romantis" required>
+                        <label class="form-check-label" for="Romantis">Romantis</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="genre" <?= $getdata['genre'] == 'Science Fiction' ? 'checked' : '' ?> id="Science Fiction" value="Science Fiction" required>
+                        <label class="form-check-label" for="Science Fiction">Science Fiction</label>
+                    </div>
+
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     <span class="help-block with-errors"></span>
                 </div>

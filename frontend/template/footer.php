@@ -131,6 +131,9 @@
             e.preventDefault();
             console.log('ada')
         });
+
+        //datatiket
+        $("#datatiket").dataTable()
     })
 </script>
 </body>

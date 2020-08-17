@@ -71,18 +71,6 @@ $queryStudio =
                                             <input type="hidden" value="<?= $id ?>" name="id_film">
                                         </div>
 
-                                        <div class="form-group">
-                                            <strong>Metode Pembayaran</strong>
-                                            <hr>
-                                            <div class="text-center">
-                                                <label class="mt-2"><img src="frontend/assets/img/ovo.png" alt="OVO" width="80px">
-                                                    <input style="display:block; margin: auto;" type="radio" name="pembayaran" value="OVO" required />
-                                                </label>
-                                                <label class="mt-2 ml-5"><img src="frontend/assets/img/gopay.png" alt="GOPAY" width="100px">
-                                                    <input style="display:block; margin: auto;margin-top: 7px" type="radio" name="pembayaran" value="GOPAY" required />
-                                                </label>
-                                            </div>
-                                        </div>
 
                                         <?php if (empty($_SESSION['email_customer'])) : ?>
                                             <div class="form-group">
@@ -93,19 +81,10 @@ $queryStudio =
                                                     <input type="text" class="form-control" name="nama" id="nama" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="email">Email</label>
-                                                    <input type="email" class="form-control" name="email" id="email" required>
-                                                </div>
-                                                <div class="form-group">
                                                     <label for="telepon">No Telepon</label>
                                                     <input type="text" class="form-control" name="telepon" id="telepon" required>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="alamat">Alamat</label>
-                                                    <input type="text" class="form-control" name="alamat" id="alamat" required>
-                                                </div>
 
-                                                <span class="text-danger" style="font-size: 13px;">* Email digunakan untuk mencetak tiket, silahkan gunakan email aktif anda.</span>
                                             </div>
                                         <?php endif ?>
 

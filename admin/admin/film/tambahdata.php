@@ -82,17 +82,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
 
                 <div class="form-group has-feedback">
-                    <label for="genre">Genre</label>
-                    <select name="genre" id="genre" class="form-control" data-required-error="Data tidak boleh kosong" required>
-                        <option value="">-Pilih Genre-</option>
-                        <option value="Action">Action</option>
-                        <option value="Petualangan">Petualangan</option>
-                        <option value="Komedi">Komedi</option>
-                        <option value="Drama">Drama</option>
-                        <option value="Horror">Horror</option>
-                        <option value="Romantis">Romantis</option>
-                        <option value="Science Fiction">Science Fiction</option>
-                    </select>
+                    <label for="genre">Genre</label> <br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="genre" id="Action" value="Action" required>
+                        <label class="form-check-label" for="Action">Action</label>
+                    </div>
+                    
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="genre" id="Petualangan" value="Petualangan" required>
+                        <label class="form-check-label" for="Petualangan">Petualangan</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="genre" id="Komedi" value="Komedi" required>
+                        <label class="form-check-label" for="Komedi">Komedi</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="genre" id="Drama" value="Drama" required>
+                        <label class="form-check-label" for="Drama">Drama</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="genre" id="Horror" value="Horror" required>
+                        <label class="form-check-label" for="Horror">Horror</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="genre" id="Romantis" value="Romantis" required>
+                        <label class="form-check-label" for="Romantis">Romantis</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="genre" id="Science Fiction" value="Science Fiction" required>
+                        <label class="form-check-label" for="Science Fiction">Science Fiction</label>
+                    </div>
+
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     <span class="help-block with-errors"></span>
                 </div>

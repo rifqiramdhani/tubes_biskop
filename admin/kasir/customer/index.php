@@ -16,7 +16,7 @@ $query = mysqli_query($koneksi, "SELECT customer.*, admin.nama as nama_admin FRO
         unset($_SESSION['title']);
         unset($_SESSION['type']);
     endif;
-    ?> 
+    ?>
 
     <div class="card card-accent-success">
         <div class="card-header"><strong>Data Customer</strong></div>

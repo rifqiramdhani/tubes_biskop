@@ -4,12 +4,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nama_paket_makanan = htmlspecialchars($_POST['nama_paket_makanan']);
     $harga = htmlspecialchars($_POST['harga']);
     $stok = htmlspecialchars($_POST['stok']);
+    $id_admin = $_SESSION['id_admin'];
     
 
     $queryCek = mysqli_query($koneksi, "SELECT * FROM `paket_makanan`  WHERE nama_paket_makanan = '$nama_paket_makanan'");
 
     if (mysqli_num_rows($queryCek) == 0) {
-        $sql = mysqli_query($koneksi, "INSERT INTO `paket_makanan`(`nama_paket_makanan`, `harga`, `stok`) VALUES ('$nama_paket_makanan', '$harga', '$stok')");
+        $sql = mysqli_query($koneksi, "INSERT INTO `paket_makanan`(`id_admin`, `nama_paket_makanan`, `harga`, `stok`) VALUES ('$id_admin', '$nama_paket_makanan', '$harga', '$stok')");
 
         if ($sql) {
             $_SESSION['message'] = 'Data berhasil di tambahkan';
