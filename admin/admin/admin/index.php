@@ -29,7 +29,6 @@ $query = mysqli_query($koneksi, "SELECT * FROM `admin`");
                             <th>Nama</th>
                             <th>Email</th>
                             <th>Level</th>
-                            <th></th>
                         </tr> 
                     </thead>
                     <tbody>
@@ -40,10 +39,10 @@ $query = mysqli_query($koneksi, "SELECT * FROM `admin`");
                                 <td><?= $getdata['nama'] ?></td>
                                 <td><?= $getdata['email'] ?></td>
                                 <td><?= $getdata['level'] ?></td>
-                                <td>
+                                <!-- <td>
                                     <a href="<?= BASE_URL . 'admin/index.php?page=admin&action=editdata&id=' . $getdata['id_admin'] ?>" class="btn btn-sm btn-primary mt-1"><i class="fas fa-edit"></i></a>
-                                    <!-- <button type="button" data-id="<?= $getdata['id_admin'] ?>" data-nama="<?= $getdata['nama'] ?>" class="btn btn-sm btn-danger  mt-1 <?= $_SESSION['id_admin'] == $getdata['id_admin'] ? 'disabled' : 'remove' ?>"><i class="fas fa-trash"></i></button> -->
-                                </td>
+                                    <button type="button" data-id="<?= $getdata['id_admin'] ?>" data-nama="<?= $getdata['nama'] ?>" class="btn btn-sm btn-danger  mt-1 <?= $_SESSION['id_admin'] == $getdata['id_admin'] ? 'disabled' : 'remove' ?>"><i class="fas fa-trash"></i></button>
+                                </td> -->
                             </tr>
                         <?php endwhile ?>
                     </tbody>

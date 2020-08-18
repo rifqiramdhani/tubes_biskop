@@ -40,7 +40,7 @@ $query = mysqli_query($koneksi, "SELECT struk.*, nama_paket_makanan, harga FROM 
                                 <td><?= $getdata['nama'] ?></td>
                                 <td><?= $getdata['nama_paket_makanan'] ?></td>
                                 <td><?= rupiah($getdata['harga']) ?></td>
-                                <td><?= $getdata['total_harga'] ?></td>
+                                <td><?= rupiah($getdata['total_harga']) ?></td>
                                 <td><?= date('d-m-Y', strtotime($getdata['tanggal'])) ?></td>
                             </tr>
                         <?php endwhile ?>

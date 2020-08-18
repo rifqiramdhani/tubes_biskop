@@ -48,8 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         if (isset($_SESSION['login_customer'])) {
             
-            $_SESSION['message'] = 'Pemesanan Makan berhasil dilakukan, silahkan ke menu tiket untuk melihat tagihan pembayaran.';
-            $_SESSION['title'] = 'Data Pemesanan Makan';
+            $_SESSION['message'] = 'Pemesanan Makanan berhasil dilakukan, silahkan ke menu tiket untuk melihat tagihan pembayaran.';
+            $_SESSION['title'] = 'Data Pemesanan Makanan';
             $_SESSION['type'] = 'success';
 
             header("location: ../../index.php");
@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     } else {
         $_SESSION['message'] = 'Pemesanan gagal dilakukan.';
-        $_SESSION['title'] = 'Data Pemesanan';
+        $_SESSION['title'] = 'Data Pemesanan Makanan';
         $_SESSION['type'] = 'error';
         
         header("location: ../../index.php");
